@@ -39,4 +39,12 @@ module.exports = {
 			{ devDependencies: ['**/*.test.ts', '**/*.test.tsx'] },
 		],
 	},
+	overrides: [
+		{
+			files: ['*.ts', '*.tsx'],
+			rules: {
+				'no-undef': 'off',
+			},
+		},
+	],
 };
