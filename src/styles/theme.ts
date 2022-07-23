@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { createTheme } from '@mui/material/styles';
+import { createTheme, darken } from '@mui/material/styles';
 import { CSSProperties } from 'react';
 
 declare module '@mui/material/styles' {
@@ -37,6 +37,15 @@ const theme = createTheme({
 		background: {
 			default: '#1C1D26',
 			paper: '#262733',
+		},
+	},
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 300,
+			md: 900,
+			lg: 1200,
+			xl: 1536,
 		},
 	},
 });
@@ -95,6 +104,16 @@ theme.typography.button = {
 	fontFamily: 'Roboto',
 	fontSize: '1.25rem',
 	fontWeight: 700,
+};
+
+theme.components = {
+	MuiTooltip: {
+		styleOverrides: {
+			tooltip: {
+				backgroundColor: darken(theme.palette.background.default, 0.3),
+			},
+		},
+	},
 };
 
 export default theme;
