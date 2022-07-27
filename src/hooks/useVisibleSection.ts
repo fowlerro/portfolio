@@ -1,10 +1,10 @@
 import { RefObject, useEffect, useState } from 'react';
 
 interface UseVisibleSectionProps {
-	sectionRefs: RefObject<HTMLDivElement>[];
+	sectionsRef: RefObject<HTMLDivElement[]>;
 }
 
-function useVisibleSection({ sectionRefs }: UseVisibleSectionProps): string | null {
+function useVisibleSection({ sectionsRef }: UseVisibleSectionProps): string | null {
 	const [visibleSection, setVisibleSection] = useState<string | null>(null);
 	const [pageHeight, setPageHeight] = useState(0);
 
@@ -34,12 +34,12 @@ function useVisibleSection({ sectionRefs }: UseVisibleSectionProps): string | nu
 			}
 		);
 
-		sectionRefs.forEach((ref) => {
-			if (ref.current) observer.observe(ref.current);
+		sectionsRef.current?.forEach((section) => {
+			if (section) observer.observe(section);
 		});
 
 		return () => observer.disconnect();
-	}, [...sectionRefs, visibleSection, setVisibleSection]);
+	}, [observerMargin, pageHeight, sectionsRef, visibleSection]);
 
 	return visibleSection;
 }

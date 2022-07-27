@@ -5,8 +5,11 @@ module.exports = {
 		jest: true,
 	},
 	extends: [
+		'eslint:recommended',
 		'plugin:react/recommended',
+		'plugin:react-hooks/recommended',
 		'plugin:jest/recommended',
+		'plugin:jest-dom/recommended',
 		'airbnb',
 		'plugin:jsx-a11y/recommended',
 		'plugin:import/errors',
@@ -34,6 +37,7 @@ module.exports = {
 		'import/extensions': ['off'],
 		'react/react-in-jsx-scope': 'off',
 		'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+		'react/require-default-props': ['off'],
 		'import/no-extraneous-dependencies': [
 			'error',
 			{ devDependencies: ['**/*.test.ts', '**/*.test.tsx'] },
@@ -45,6 +49,10 @@ module.exports = {
 			rules: {
 				'no-undef': 'off',
 			},
+		},
+		{
+			files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+			extends: ['plugin:testing-library/react'],
 		},
 	],
 };

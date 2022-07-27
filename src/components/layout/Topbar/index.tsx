@@ -1,9 +1,7 @@
 import { useRef } from 'react';
 
-import { AppBar, IconButton, useScrollTrigger, styled } from '@mui/material';
+import { AppBar, useScrollTrigger, styled } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
-
-import Hamburger from '@components/icons/Hamburger';
 
 import useBoolean from '@hooks/useBoolean';
 import useIsDesktop from '@hooks/useIsDesktop';
@@ -11,6 +9,7 @@ import useIsDesktop from '@hooks/useIsDesktop';
 import Drawer from './Drawer';
 import Socials from './Socials';
 import Items from './Items';
+import HamburgerButton from './HamburgerButton';
 
 const StyledAppBar = styled(AppBar, {
 	shouldForwardProp: (prop: string) => prop !== 'scroll' && prop !== 'expanded',
@@ -65,9 +64,7 @@ export default function Topbar({ visibleSection }: TopbarProps): JSX.Element {
 						{isDesktop ? (
 							<Items visibleSection={visibleSection} />
 						) : (
-							<IconButton sx={{ p: 0 }} onClick={toggle}>
-								<Hamburger expanded={expanded} />
-							</IconButton>
+							<HamburgerButton expanded={expanded} onClick={toggle} />
 						)}
 					</Grid>
 					<RightItems xs={2} xsOffset="auto">

@@ -4,25 +4,22 @@ import Topbar from '@components/layout/Topbar';
 import useVisibleSection from '@hooks/useVisibleSection';
 
 export default function Home(): JSX.Element {
-	const heroRef = useRef<HTMLDivElement>(null);
-	const aboutRef = useRef<HTMLDivElement>(null);
-	const projectsRef = useRef<HTMLDivElement>(null);
-	const contactRef = useRef<HTMLDivElement>(null);
+	const sectionsRef = useRef<HTMLDivElement[]>([]);
 
 	const visibleSection = useVisibleSection({
-		sectionRefs: [heroRef, aboutRef, projectsRef, contactRef],
+		sectionsRef,
 	});
 
 	return (
 		<>
 			<Topbar visibleSection={visibleSection} />
-			<div ref={heroRef} style={{ height: '120vh' }}>
+			<div ref={(el) => sectionsRef.current.push(el!)} style={{ height: '120vh' }}>
 				HERO
 			</div>
 			<div
 				id="about"
 				style={{ height: '120vh', outline: '1px solid red' }}
-				ref={aboutRef}
+				ref={(el) => sectionsRef.current.push(el!)}
 			>
 				ABOUT
 			</div>
@@ -30,14 +27,14 @@ export default function Home(): JSX.Element {
 			<div
 				id="projects"
 				style={{ height: '120vh', outline: '1px solid blue' }}
-				ref={projectsRef}
+				ref={(el) => sectionsRef.current.push(el!)}
 			>
 				PROJECTS
 			</div>
 			<div
 				id="contact"
 				style={{ height: '120vh', outline: '1px solid green' }}
-				ref={contactRef}
+				ref={(el) => sectionsRef.current.push(el!)}
 			>
 				CONTACT
 			</div>

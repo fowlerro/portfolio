@@ -30,6 +30,7 @@ export default function Drawer({
 }: DrawerProps): JSX.Element {
 	return (
 		<StyledDrawer
+			id="navigationDrawer"
 			variant="temporary"
 			open={open}
 			onClose={onClose}

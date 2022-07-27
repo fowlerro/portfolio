@@ -65,6 +65,8 @@ export default function Hamburger({ expanded }: HamburgerProps): JSX.Element {
 					rotate: 90,
 				},
 			}}
+			role="img"
+			aria-hidden
 		>
 			<motion.rect
 				x="12"

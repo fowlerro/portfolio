@@ -9,12 +9,13 @@ import { ReactNode } from 'react';
 const MotionLink = motion(Link);
 
 interface ItemProps {
+	label: string;
 	tooltip: string;
 	href: string;
 	children: ReactNode;
 }
 
-function Item({ tooltip, href, children }: ItemProps) {
+function Item({ label, tooltip, href, children }: ItemProps) {
 	const theme = useTheme();
 
 	const variants = {
@@ -29,8 +30,9 @@ function Item({ tooltip, href, children }: ItemProps) {
 	};
 
 	return (
-		<Tooltip title={tooltip}>
+		<Tooltip title={tooltip} describeChild>
 			<MotionLink
+				aria-label={label}
 				href={href}
 				target="_blank"
 				rel="noopener"
@@ -50,14 +52,19 @@ function Item({ tooltip, href, children }: ItemProps) {
 export default function Socials(): JSX.Element {
 	return (
 		<>
-			<Item tooltip="@fowlerro" href="https://github.com/fowlerro/">
+			<Item label="Github" tooltip="@fowlerro" href="https://github.com/fowlerro/">
 				<Github />
 			</Item>
-			<Item tooltip="@kamilwenta" href="https://linkedin.com/in/kamilwenta/">
+			<Item
+				label="LinkedIn"
+				tooltip="@kamilwenta"
+				href="https://linkedin.com/in/kamilwenta/"
+			>
 				<LinkedIn />
 			</Item>
 
 			<Item
+				label="Discord"
 				tooltip="@fowlerro#2107"
 				href="https://discordapp.com/users/313346190995619841/"
 			>

@@ -5,7 +5,14 @@ interface GithubProps {
 
 export default function Github({ width = '24px', height }: GithubProps): JSX.Element {
 	return (
-		<svg viewBox="0 0 128 128" width={width} height={height} fill="currentColor">
+		<svg
+			viewBox="0 0 128 128"
+			width={width}
+			height={height}
+			fill="currentColor"
+			role="img"
+			aria-hidden
+		>
 			<g>
 				<path
 					fillRule="evenodd"

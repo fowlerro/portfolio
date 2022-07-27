@@ -81,7 +81,7 @@ const StyledItemsBox = styled(Box)(({ theme }) => ({
 
 export default function Items({ visibleSection, onClose }: ItemsProps): JSX.Element {
 	return (
-		<StyledItemsBox>
+		<StyledItemsBox role="navigation">
 			<Item href="#about" active={visibleSection === 'about'} onClose={onClose}>
 				ABOUT
 			</Item>
