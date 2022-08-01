@@ -1,6 +1,6 @@
+import { CSSProperties } from 'react';
 /* eslint-disable no-unused-vars */
 import { createTheme, darken } from '@mui/material/styles';
-import { CSSProperties } from 'react';
 
 declare module '@mui/material/styles' {
 	interface TypographyVariants {
@@ -32,7 +32,7 @@ const theme = createTheme({
 		},
 		text: {
 			primary: '#FFF',
-			secondary: 'secondary',
+			secondary: '#8489B3',
 		},
 		background: {
 			default: '#1C1D26',
@@ -54,6 +54,8 @@ theme.typography.h1 = {
 	fontFamily: 'Roboto',
 	color: theme.palette.text.primary,
 	fontSize: '2rem',
+	letterSpacing: '1px',
+	lineHeight: 1.25,
 	fontWeight: 700,
 	[theme.breakpoints.up('md')]: {
 		fontSize: '2.25rem',
@@ -62,8 +64,12 @@ theme.typography.h1 = {
 
 theme.typography.h2 = {
 	fontFamily: 'Roboto',
-	fontSize: '1.5rem',
-	fontWeight: 500,
+	fontSize: '1.75rem',
+	fontWeight: 700,
+
+	[theme.breakpoints.up('md')]: {
+		fontSize: '2rem',
+	},
 };
 
 theme.typography.h3 = {
@@ -74,11 +80,11 @@ theme.typography.h3 = {
 
 theme.typography.body1 = {
 	fontFamily: 'Roboto',
-	fontSize: '1.125rem',
-	lineHeight: '1.25rem',
+	lineHeight: '1.5rem',
+	letterSpacing: '1px',
 	fontWeight: 400,
+	fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
 	[theme.breakpoints.up('md')]: {
-		fontSize: '1.5rem',
 		lineHeight: '1.75rem',
 	},
 };
@@ -87,6 +93,7 @@ theme.typography.body2 = {
 	fontFamily: 'Roboto',
 	fontSize: '0.875rem',
 	lineHeight: '1.5rem',
+	letterSpacing: '1px',
 	fontWeight: 400,
 	[theme.breakpoints.up('md')]: {
 		fontSize: '1rem',
@@ -111,6 +118,13 @@ theme.components = {
 		styleOverrides: {
 			tooltip: {
 				backgroundColor: darken(theme.palette.background.default, 0.3),
+			},
+		},
+	},
+	MuiButton: {
+		styleOverrides: {
+			outlined: {
+				padding: theme.spacing(1, 2),
 			},
 		},
 	},
