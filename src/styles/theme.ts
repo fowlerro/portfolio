@@ -65,6 +65,7 @@ theme.typography.h1 = {
 theme.typography.h2 = {
 	fontFamily: 'Roboto',
 	fontSize: '1.75rem',
+	lineHeight: 1.25,
 	fontWeight: 700,
 
 	[theme.breakpoints.up('md')]: {
@@ -118,6 +119,11 @@ theme.components = {
 		styleOverrides: {
 			tooltip: {
 				backgroundColor: darken(theme.palette.background.default, 0.3),
+			},
+			arrow: {
+				'::before': {
+					backgroundColor: darken(theme.palette.background.default, 0.3),
+				},
 			},
 		},
 	},
