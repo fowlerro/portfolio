@@ -1,35 +1,47 @@
-import { motion } from 'framer-motion';
+import { CSSProperties } from 'react';
 
-import useIsDesktop from '@hooks/useIsDesktop';
-import { styled, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import { styled, Tooltip, Typography } from '@mui/material';
+
+const icons = [
+	'html',
+	'css',
+	'javascript',
+	'typescript',
+	'node',
+	'git',
+	'react',
+	'express',
+	'materialui',
+	'mongodb',
+	'socketio',
+	'discordjs',
+] as const;
+
+export type IconMap = typeof icons[number];
 
 interface IconProps {
-	icon: string;
+	icon: IconMap;
 	label: string;
+	size?: CSSProperties['width'];
+	hideLabel?: boolean;
 }
 
-const StyledListItem = styled('li')(({ theme }) => ({
+const Container = styled('div')(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
-
-	width: '82px',
-
 	rowGap: theme.spacing(1),
 	color: theme.palette.secondary.main,
-	padding: theme.spacing(1),
 
 	':focus, :hover': {
 		outline: 0,
 		color: theme.palette.text.primary,
 	},
-
-	[theme.breakpoints.up('md')]: {
-		padding: theme.spacing(2),
-	},
 }));
 
-const MotionListItem = motion(StyledListItem);
+const MotionContainer = motion(Container);
+const MotionTooltip = motion(Tooltip);
 
 const iconAnimationVariants = {
 	initial: {
@@ -44,35 +56,50 @@ const iconAnimationVariants = {
 		outline: 'none',
 	},
 };
-export default function Icon({ icon, label }: IconProps): JSX.Element {
-	const isDesktop = useIsDesktop();
+export default function Icon({
+	icon,
+	label,
+	size = '40px',
+	hideLabel = false,
+}: IconProps): JSX.Element {
+	const iconSrc = `src/assets/icons/${icon}.svg`;
 
-	const iconSize = isDesktop ? '40px' : '32px';
+	const containerProps = {
+		initial: 'initial',
+		animate: 'initial',
+		whileHover: 'hovered',
+		whileFocus: 'hovered',
+		tabIndex: 0,
+	};
+
+	const image = (
+		<motion.img
+			src={iconSrc}
+			width={size}
+			alt={label}
+			variants={iconAnimationVariants}
+			transition={{
+				type: 'spring',
+				damping: 10,
+				stiffness: 300,
+				mass: 1,
+			}}
+		/>
+	);
+
+	if (hideLabel)
+		return (
+			<MotionTooltip title={label} arrow enterTouchDelay={0} {...containerProps}>
+				{image}
+			</MotionTooltip>
+		);
 
 	return (
-		<MotionListItem
-			initial="initial"
-			animate="initial"
-			whileHover="hovered"
-			whileFocus="hovered"
-			aria-labelledby={`label-${label}`}
-			tabIndex={0}
-		>
-			<motion.img
-				src={icon}
-				width={iconSize}
-				alt={label}
-				variants={iconAnimationVariants}
-				transition={{
-					type: 'spring',
-					damping: 10,
-					stiffness: 300,
-					mass: 1,
-				}}
-			/>
+		<MotionContainer aria-labelledby={`label-${label}`} {...containerProps}>
+			{image}
 			<Typography variant="body3" component="span" id={`label-${label}`}>
 				{label}
 			</Typography>
-		</MotionListItem>
+		</MotionContainer>
 	);
 }

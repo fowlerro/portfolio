@@ -1,16 +1,5 @@
+import useIsDesktop from '@hooks/useIsDesktop';
 import { Box, styled, Typography } from '@mui/material';
-
-import htmlIcon from '@assets/icons/html.svg';
-import cssIcon from '@assets/icons/css.svg';
-import javascriptIcon from '@assets/icons/javascript.svg';
-import typescriptIcon from '@assets/icons/typescript.svg';
-import nodeIcon from '@assets/icons/node.svg';
-import gitIcon from '@assets/icons/git.svg';
-import reactIcon from '@assets/icons/react.svg';
-import expressIcon from '@assets/icons/express.svg';
-import materialuiIcon from '@assets/icons/materialui.svg';
-import mongoIcon from '@assets/icons/mongodb.svg';
-import socketIcon from '@assets/icons/socketio.svg';
 
 import Icon from './Icon';
 
@@ -24,7 +13,19 @@ const StyledSection = styled('section')(({ theme }) => ({
 	},
 }));
 
+const ListItem = styled('li')(({ theme }) => ({
+	width: '82px',
+	padding: theme.spacing(1),
+
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(2),
+	},
+}));
+
 export default function Technology(): JSX.Element {
+	const isDesktop = useIsDesktop();
+
+	const iconSize = isDesktop ? '40px' : `32px`;
 	return (
 		<StyledSection>
 			<Typography variant="h2" sx={{ marginBottom: '2rem' }}>
@@ -45,17 +46,39 @@ export default function Technology(): JSX.Element {
 					padding: 0,
 				}}
 			>
-				<Icon icon={htmlIcon} label="HTML" />
-				<Icon icon={cssIcon} label="CSS" />
-				<Icon icon={javascriptIcon} label="JavaScript" />
-				<Icon icon={typescriptIcon} label="TypeScript" />
-				<Icon icon={nodeIcon} label="NodeJS" />
-				<Icon icon={gitIcon} label="Git" />
-				<Icon icon={reactIcon} label="React" />
-				<Icon icon={expressIcon} label="Express" />
-				<Icon icon={materialuiIcon} label="Material UI" />
-				<Icon icon={mongoIcon} label="MongoDB" />
-				<Icon icon={socketIcon} label="Socket.io" />
+				<ListItem>
+					<Icon icon="html" label="HTML" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="css" label="CSS" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="javascript" label="JavaScript" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="typescript" label="TypeScript" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="node" label="NodeJS" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="git" label="Git" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="react" label="React" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="express" label="Express" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="materialui" label="Material UI" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="mongodb" label="MongoDB" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="socketio" label="Socket.io" size={iconSize} />
+				</ListItem>
 			</Box>
 		</StyledSection>
 	);
