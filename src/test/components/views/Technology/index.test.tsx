@@ -4,7 +4,7 @@ import renderWithMui from '@utils/renderWithMui';
 
 import Technology from '@components/views/Technology';
 
-describe('Hero section', () => {
+describe('Technology section', () => {
 	it('should render', () => {
 		renderWithMui(<Technology />);
 
