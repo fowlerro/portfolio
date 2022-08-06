@@ -1,3 +1,4 @@
+import projects from '@utils/projects';
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
 
 import Home from './Home';
@@ -9,7 +10,13 @@ export default function Routes(): JSX.Element {
 			<ReactRoutes>
 				<Route path="/">
 					<Route index element={<Home />} />
-					<Route path=":project" element={<Project />} />
+					{projects.map((project) => (
+						<Route
+							key={project.name}
+							path={project.name}
+							element={<Project project={project} />}
+						/>
+					))}
 				</Route>
 			</ReactRoutes>
 		</BrowserRouter>
