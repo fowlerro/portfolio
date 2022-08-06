@@ -5,18 +5,15 @@ module.exports = {
 		jest: true,
 	},
 	extends: [
-		'eslint:recommended',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
 		'plugin:jest/recommended',
 		'plugin:jest-dom/recommended',
+		'plugin:react/recommended',
 		'airbnb',
+		'airbnb/hooks',
 		'plugin:jsx-a11y/recommended',
-		'plugin:import/errors',
-		'plugin:import/warnings',
-		'plugin:import/typescript',
 		'plugin:prettier/recommended',
 	],
+	plugins: ['jsx-a11y', 'prettier', '@typescript-eslint', 'jest'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
 		ecmaFeatures: {
@@ -25,7 +22,6 @@ module.exports = {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 	},
-	plugins: ['react', '@typescript-eslint', 'jest', 'simple-import-sort', 'prettier'],
 	settings: {
 		'import/resolver': {
 			typescript: {
@@ -34,10 +30,13 @@ module.exports = {
 		},
 	},
 	rules: {
-		'import/extensions': ['off'],
+		'no-unused-vars': 'warn',
 		'react/react-in-jsx-scope': 'off',
 		'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
 		'react/require-default-props': ['off'],
+		'react/jsx-key': 'error',
+		'react/jsx-props-no-spreading': 'off',
+		'import/extensions': ['off'],
 		'import/no-extraneous-dependencies': [
 			'error',
 			{ devDependencies: ['**/*.test.ts', '**/*.test.tsx'] },
