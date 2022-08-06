@@ -7,7 +7,7 @@ export default {
 	preset: 'ts-jest',
 	transform: {
 		'^.+\\.tsx?$': 'ts-jest',
-		'^.+\\.svg$': '<rootDir>/svgTransform.js',
+		'^.+\\.(svg|png)$': '<rootDir>/svgTransform.js',
 	},
 	collectCoverage: true,
 	collectCoverageFrom: ['src/**/*.{ts,tsx}'],

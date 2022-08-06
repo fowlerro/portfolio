@@ -5,6 +5,7 @@ import Topbar from '@components/layout/Topbar';
 import Hero from '@components/views/Hero';
 import About from '@components/views/About';
 import Technology from '@components/views/Technology';
+import Projects from '@components/views/Projects';
 
 import useVisibleSection from '@hooks/useVisibleSection';
 
@@ -21,7 +22,7 @@ export default function Home(): JSX.Element {
 			<Hero ref={(el) => sectionsRef.current.push(el!)} />
 			<About ref={(el) => sectionsRef.current.push(el!)} />
 			<Technology />
-			<div id="projects" ref={(el) => sectionsRef.current.push(el!)} />
+			<Projects ref={(el) => sectionsRef.current.push(el!)} />
 			<div id="contact" ref={(el) => sectionsRef.current.push(el!)} />
 		</>
 	);
