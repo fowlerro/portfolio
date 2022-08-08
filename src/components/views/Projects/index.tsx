@@ -10,9 +10,11 @@ const StyledSection = styled('section')(({ theme }) => ({
 	textAlign: 'center',
 	marginBlock: '8rem',
 	marginInline: theme.spacing(4),
+	scrollMarginTop: '8rem',
 
 	[theme.breakpoints.up('md')]: {
 		marginInline: theme.spacing(8),
+		scrollMarginTop: '16rem',
 	},
 }));
 

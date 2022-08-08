@@ -60,7 +60,7 @@ export default function Topbar({ visibleSection }: TopbarProps): JSX.Element {
 					alignItems="center"
 					sx={{ paddingBlock: [2, null, 4], paddingInline: [4, null, 8] }}
 				>
-					<Grid xs={1} md={3} mdOffset={1} pl={0} minWidth={[0, 0, '25rem']}>
+					<Grid xs={1} md={4} mdOffset={1} pl={0} minWidth={[0, 0, '25rem']}>
 						{isDesktop ? (
 							<Items visibleSection={visibleSection} />
 						) : (

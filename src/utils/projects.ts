@@ -1,5 +1,14 @@
 import { ProjectCardProps } from '@components/views/Projects/ProjectCard';
 
+import lunarisHome from '@assets/projects/lunaris/home_page.png';
+import lunarisCommands from '@assets/projects/lunaris/commands_page.png';
+import lunarisProfile from '@assets/projects/lunaris/profile_page.png';
+import lunarisServers from '@assets/projects/lunaris/servers_page.png';
+import lunarisDashboard from '@assets/projects/lunaris/dashboard_page.png';
+import lunarisLevels from '@assets/projects/lunaris/levels_module.png';
+import lunarisInteractiveRoles from '@assets/projects/lunaris/interactive_roles_module.png';
+import lunarisEmbeds from '@assets/projects/lunaris/embeds_module.png';
+
 export interface Project extends ProjectCardProps {
 	longDescription: string;
 	screenshots: {
@@ -11,7 +20,7 @@ export interface Project extends ProjectCardProps {
 
 const projects: Project[] = [
 	{
-		thumbnail: 'src/assets/projects/lunaris/home_page.png',
+		thumbnail: lunarisHome,
 		name: 'Lunaris',
 		shortDescription: `Lunaris is a discord bot created to provide most of needed options to manage discord servers.
 					I think discord servers have too many different bots so I came up with an idea to make one large bot, which could replace most of them`,
@@ -33,42 +42,42 @@ const projects: Project[] = [
 			{
 				label: 'Home page',
 				url: 'lunaris.pro',
-				image: 'src/assets/projects/lunaris/home_page.png',
+				image: lunarisHome,
 			},
 			{
 				label: 'Commands page',
 				url: 'lunaris.pro/commands',
-				image: 'src/assets/projects/lunaris/commands_page.png',
+				image: lunarisCommands,
 			},
 			{
 				label: 'Profile page',
 				url: 'lunaris.pro/profile',
-				image: 'src/assets/projects/lunaris/profile_page.png',
+				image: lunarisProfile,
 			},
 			{
 				label: 'Servers page',
 				url: 'lunaris.pro/servers',
-				image: 'src/assets/projects/lunaris/servers_page.png',
+				image: lunarisServers,
 			},
 			{
 				label: 'Dashboard page',
 				url: 'lunaris.pro/dashboard',
-				image: 'src/assets/projects/lunaris/dashboard_page.png',
+				image: lunarisDashboard,
 			},
 			{
 				label: 'Levels module',
 				url: 'lunaris.pro/dashboard/levels',
-				image: 'src/assets/projects/lunaris/levels_module.png',
+				image: lunarisLevels,
 			},
 			{
 				label: 'Interactive roles module',
 				url: 'lunaris.pro/dashboard/interactive-roles',
-				image: 'src/assets/projects/lunaris/interactive_roles_module.png',
+				image: lunarisInteractiveRoles,
 			},
 			{
 				label: 'Embeds module',
 				url: 'lunaris.pro/dashboard/embeds',
-				image: 'src/assets/projects/lunaris/embeds_module.png',
+				image: lunarisEmbeds,
 			},
 		],
 	},

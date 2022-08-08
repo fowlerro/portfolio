@@ -9,9 +9,11 @@ import Content from './Content';
 const StyledSection = styled('section')(({ theme }) => ({
 	textAlign: 'center',
 	marginTop: '16rem',
+	scrollMarginTop: '8rem',
 
 	[theme.breakpoints.up('md')]: {
 		textAlign: 'left',
+		scrollMarginTop: '20rem',
 	},
 }));
 

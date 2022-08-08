@@ -12,6 +12,13 @@ import useIsDesktop from '@hooks/useIsDesktop';
 
 import EmailLink from './EmailLink';
 
+interface Errors {
+	name?: string;
+	email?: string;
+	subject?: string;
+	message?: string;
+}
+
 const StyledForm = styled('form')({
 	display: 'flex',
 	flexDirection: 'column',
@@ -53,6 +60,8 @@ export default function Form(): JSX.Element {
 	const [subject, setSubject] = useState('');
 	const [message, setMessage] = useState('');
 
+	const [errors, setErrors] = useState<Errors>({});
+
 	const [isLoading, { setTrue: startLoading, setFalse: stopLoading }] = useBoolean();
 	const [success, { toggle: setSuccess }] = useBoolean();
 	const [error, { toggle: setError }] = useBoolean();
@@ -61,6 +70,18 @@ export default function Form(): JSX.Element {
 		e.preventDefault();
 		if (!formRef.current) return;
 		startLoading();
+		setErrors({});
+
+		const fieldErrors: Errors = {};
+		if (!name) fieldErrors.name = 'Name is required!';
+		if (!email) fieldErrors.email = 'Email is required!';
+		if (!message) fieldErrors.message = 'Message is required!';
+
+		if (Object.keys(fieldErrors).length) {
+			setErrors(fieldErrors);
+			stopLoading();
+			return;
+		}
 
 		emailjs
 			.send(
@@ -98,7 +119,7 @@ export default function Form(): JSX.Element {
 					type="text"
 					name="name"
 					placeholder="Name"
-					required
+					errorMessage={errors.name}
 					disabled={isLoading}
 					value={name}
 					onChange={(e) => setName(e.target.value)}
@@ -107,7 +128,7 @@ export default function Form(): JSX.Element {
 					type="email"
 					name="email"
 					placeholder="Email"
-					required
+					errorMessage={errors.email}
 					disabled={isLoading}
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
@@ -116,6 +137,7 @@ export default function Form(): JSX.Element {
 					type="text"
 					name="subject"
 					placeholder="Subject"
+					errorMessage={errors.subject}
 					disabled={isLoading}
 					value={subject}
 					onChange={(e) => setSubject(e.target.value)}
@@ -124,7 +146,7 @@ export default function Form(): JSX.Element {
 					type="text"
 					name="message"
 					placeholder="Message"
-					required
+					errorMessage={errors.message}
 					disabled={isLoading}
 					multiline
 					minRows={6}

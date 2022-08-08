@@ -1,6 +1,16 @@
 import { ForwardedRef, forwardRef } from 'react';
 
-import { InputBase, InputBaseProps, styled } from '@mui/material';
+import {
+	InputBase,
+	InputBaseProps,
+	FormControl,
+	FormHelperText,
+	styled,
+} from '@mui/material';
+
+interface InputProps extends InputBaseProps {
+	errorMessage?: string;
+}
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper,
@@ -24,18 +34,21 @@ const StyledInput = styled(InputBase)(({ theme }) => ({
 }));
 
 function Input(
-	{ placeholder, ...props }: InputBaseProps,
+	{ placeholder, errorMessage, ...props }: InputProps,
 	ref: ForwardedRef<unknown>
 ): JSX.Element {
 	return (
-		<StyledInput
-			ref={ref}
-			inputProps={{
-				'aria-label': placeholder,
-			}}
-			placeholder={placeholder}
-			{...props}
-		/>
+		<FormControl error={Boolean(errorMessage)}>
+			<StyledInput
+				ref={ref}
+				inputProps={{
+					'aria-label': placeholder,
+				}}
+				placeholder={placeholder}
+				{...props}
+			/>
+			{errorMessage && <FormHelperText>{errorMessage}</FormHelperText>}
+		</FormControl>
 	);
 }
 

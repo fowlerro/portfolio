@@ -22,11 +22,11 @@ function Item({ href, active, children, onClose }: ItemProps) {
 			scale: 1,
 		},
 		hovered: {
-			rotate: -8,
+			rotate: -4,
 			scale: 1.1,
 		},
 		active: {
-			rotate: -8,
+			rotate: -4,
 			scale: 1.1,
 		},
 	};

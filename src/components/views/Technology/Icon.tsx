@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { useState, CSSProperties, useEffect } from 'react';
 
 import { motion } from 'framer-motion';
 import { styled, Tooltip, Typography } from '@mui/material';
@@ -62,7 +62,16 @@ export default function Icon({
 	size = '40px',
 	hideLabel = false,
 }: IconProps): JSX.Element {
-	const iconSrc = `src/assets/icons/${icon}.svg`;
+	const [iconSrc, setIconSrc] = useState<string | undefined>(undefined);
+
+	useEffect(() => {
+		async function fetchIcon() {
+			await import(`../../../assets/icons/${icon}.svg`).then((data) =>
+				setIconSrc(data.default)
+			);
+		}
+		fetchIcon();
+	}, [icon]);
 
 	const containerProps = {
 		initial: 'initial',

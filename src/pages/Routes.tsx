@@ -1,5 +1,6 @@
+import Footer from '@components/layout/Footer';
 import projects from '@utils/projects';
-import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes as ReactRoutes, Route, Navigate } from 'react-router-dom';
 
 import Home from './Home';
 import Project from './Project';
@@ -18,7 +19,9 @@ export default function Routes(): JSX.Element {
 						/>
 					))}
 				</Route>
+				<Route path="*" element={<Navigate replace to="/" />} />
 			</ReactRoutes>
+			<Footer />
 		</BrowserRouter>
 	);
 }
