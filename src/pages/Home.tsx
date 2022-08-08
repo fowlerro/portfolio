@@ -8,6 +8,7 @@ import Technology from '@components/views/Technology';
 import Projects from '@components/views/Projects';
 
 import useVisibleSection from '@hooks/useVisibleSection';
+import Contact from '@components/views/Contact';
 
 export default function Home(): JSX.Element {
 	const sectionsRef = useRef<HTMLDivElement[]>([]);
@@ -23,7 +24,7 @@ export default function Home(): JSX.Element {
 			<About ref={(el) => sectionsRef.current.push(el!)} />
 			<Technology />
 			<Projects ref={(el) => sectionsRef.current.push(el!)} />
-			<div id="contact" ref={(el) => sectionsRef.current.push(el!)} />
+			<Contact ref={(el) => sectionsRef.current.push(el!)} />
 		</>
 	);
 }
