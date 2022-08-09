@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet';
+
 import ProjectView from '@components/views/Project';
 import type { Project as ProjectType } from '@utils/projects';
 
@@ -6,5 +8,14 @@ interface ProjectProps {
 }
 
 export default function Project({ project }: ProjectProps): JSX.Element {
-	return <ProjectView project={project} />;
+	return (
+		<>
+			<Helmet>
+				<title>{project.name} - Kamil Wenta | React Developer</title>
+				<meta name="title" content={`${project.name} - Kamil Wenta | React Developer`} />
+				<meta name="description" content={project.shortDescription} />
+			</Helmet>
+			<ProjectView project={project} />
+		</>
+	);
 }

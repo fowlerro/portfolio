@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet';
 
 import Topbar from '@components/layout/Topbar';
 
@@ -19,6 +20,14 @@ export default function Home(): JSX.Element {
 
 	return (
 		<>
+			<Helmet>
+				<title>Home - Kamil Wenta | React Developer</title>
+				<meta name="title" content="Home - Kamil Wenta | React Developer" />
+				<meta
+					name="description"
+					content="A React Developer focused on building responsive apps with clean codebase."
+				/>
+			</Helmet>
 			<Topbar visibleSection={visibleSection} />
 			<Hero ref={(el) => sectionsRef.current.push(el!)} />
 			<About ref={(el) => sectionsRef.current.push(el!)} />
