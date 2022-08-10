@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 import ProjectView from '@components/views/Project';
 import type { Project as ProjectType } from '@utils/projects';
