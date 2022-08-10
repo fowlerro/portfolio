@@ -29,7 +29,7 @@ const Contact = forwardRef<HTMLDivElement>((_, ref) => {
 				}}
 			>
 				<Grid xs={12} mdOffset={1} md={5}>
-					<Box sx={{ maxWidth: '30rem' }}>
+					<Box sx={{ maxWidth: '30rem', marginInline: 'auto' }}>
 						<Content />
 						<Form />
 					</Box>

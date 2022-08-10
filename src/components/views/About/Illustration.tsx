@@ -10,6 +10,7 @@ const StyledBox = styled('div')(({ theme }) => ({
 	maxWidth: '25rem',
 	marginBottom: '4rem',
 	position: 'relative',
+	marginInline: 'auto',
 
 	'::before': {
 		content: "''",
@@ -30,6 +31,7 @@ const StyledBox = styled('div')(({ theme }) => ({
 			width: '100%',
 			filter: 'blur(50px)',
 		},
+		marginInline: 'unset',
 	},
 }));
 
