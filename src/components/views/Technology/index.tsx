@@ -39,7 +39,7 @@ export default function Technology(): JSX.Element {
 				display="flex"
 				flexWrap="wrap"
 				justifyContent="center"
-				maxWidth="35rem"
+				maxWidth="45rem"
 				marginX="auto"
 				sx={{
 					listStyle: 'none',
@@ -65,7 +65,7 @@ export default function Technology(): JSX.Element {
 					<Icon icon="git" label="Git" size={iconSize} />
 				</ListItem>
 				<ListItem>
-					<Icon icon="react" label="React" size={iconSize} />
+					<Icon icon="react" label="React (Native)" size={iconSize} />
 				</ListItem>
 				<ListItem>
 					<Icon icon="express" label="Express" size={iconSize} />
@@ -78,6 +78,18 @@ export default function Technology(): JSX.Element {
 				</ListItem>
 				<ListItem>
 					<Icon icon="socketio" label="Socket.io" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="graphql" label="GraphQL" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="prisma" label="Prisma ORM" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="nestjs" label="Nest.js" size={iconSize} />
+				</ListItem>
+				<ListItem>
+					<Icon icon="jest" label="Jest" size={iconSize} />
 				</ListItem>
 			</Box>
 		</StyledSection>

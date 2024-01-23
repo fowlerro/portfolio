@@ -122,6 +122,7 @@ export default function Form(): JSX.Element {
 					errorMessage={errors.name}
 					disabled={isLoading}
 					value={name}
+					required
 					onChange={(e) => setName(e.target.value)}
 				/>
 				<Input
@@ -131,6 +132,7 @@ export default function Form(): JSX.Element {
 					errorMessage={errors.email}
 					disabled={isLoading}
 					value={email}
+					required
 					onChange={(e) => setEmail(e.target.value)}
 				/>
 				<Input
@@ -152,6 +154,7 @@ export default function Form(): JSX.Element {
 					minRows={6}
 					maxRows={14}
 					value={message}
+					required
 					onChange={(e) => setMessage(e.target.value)}
 				/>
 			</StyledInputsWrapper>

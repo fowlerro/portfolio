@@ -16,6 +16,10 @@ const icons = [
 	'mongodb',
 	'socketio',
 	'discordjs',
+	'graphql',
+	'prisma',
+	'nestjs',
+	'jest',
 ] as const;
 
 export type IconMap = typeof icons[number];

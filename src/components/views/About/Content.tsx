@@ -13,15 +13,15 @@ export default function Content(): JSX.Element {
 				My name is Kamil and I am a self-taught Web Developer specializing in React.
 			</Typography>
 			<Typography variant="body2" color="secondary" gutterBottom>
-				Programming has been my interest for about 5 years and I tried a lot of different
-				things since then. When I came across Javascript and web development 2 years ago,
-				I knew this is what I want to do in my life.
+				Programming has been my interest since 2017, I tried a lot of different things
+				through my journey and when I came across Javascript and web development about 3
+				years later, I knew this is what I want to do in my life.
 			</Typography>
 			<Typography variant="body2" color="secondary" gutterBottom>
-				In those 2 years I learned Javascript, Typescript, NodeJS, React, Express and I
-				tried a lot of other things like NestJS, GraphQL, can’t really say I know them
-				well, but regardless of that, everything I tried in those 2 years was real fun for
-				me and it still is!
+				I am mainly focused on frontend development, specializing in React and React
+				Native, but I can also do well on backend. I know NodeJS, Express, NestJS,
+				GraphQL, I can work with databases, I am keen to try and learn new technologies
+				and areas :D
 			</Typography>
 			<Typography variant="body2" color="secondary">
 				Now I want to build responsive and snappy apps, keeping codebase clean and
